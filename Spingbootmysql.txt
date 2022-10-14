@@ -1,0 +1,58 @@
+root@localhost:3306
+jdbc:mysql://localhost:3306/?user=root
+
+spring.datasource.url=jdbc:mysql://localhost:3306/college
+spring.datasource.username=root
+spring.datasource.password=Pass12!@
+spring.jpa.hibernate.ddl-auto=update
+
+https://www.javabrahman.com/java-8/java-8-java-util-stream-collector-basics-tutorial-with-examples/
+https://github.com/speedment/jpa-streamer/blob/master/jpa-streamer/0.1.7/fetching-data
+
+
+ {
+      
+        "name": "Suresh yadav",
+        "age": 26,
+        "college": "WISTAM",
+        "deptName":"CSE",
+		"salary" :10000
+    }
+	,
+	
+ {
+      
+        "name": "Ramesh",
+        "age": 26,
+        "college": "GITAM",
+        "deptName":"CSE",
+		"salary" :20000
+		
+    },
+	
+ {
+      
+        "name": "Prasanna",
+        "age": 50,
+        "college": "WISTAM",
+        "deptName":"CIVIL",
+		"salary" :40000
+    },
+	
+ {
+      
+        "name": "Kishore"
+		"age": 30,
+        "college": "WISTAM",
+        "deptName":"ECE",
+		"salary" :80000
+    },
+	
+ {
+      
+        "name": "Rohit",
+        "age":38,
+        "college": "WISTAM",
+        "deptName":"MECH",
+		"salary" :10000
+    }

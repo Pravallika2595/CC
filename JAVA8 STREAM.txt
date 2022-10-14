@@ -1,0 +1,118 @@
+JAVA 8 STREAM API OVERALL FUNCTIONING 
+=====================================
+ALL MATCHING SYNTAX 
+======================
+
+POJAO CLASS 
+package com.javabrahman.java8;
+public class Employee{
+  private String name;
+  private Integer age;
+  public Employee(String name, Integer age){
+    this.name=name;
+    this.age=age;
+  } 
+  //getters and setters for name and age attributes go here
+  //overridden equals() and hashcode() go here
+  public String toString(){
+    return "Employee Name:"+this.name
+      +"  Age:"+this.age;
+  }
+
+ static List<Employee> employeeList = Arrays.asList(new Employee("Tom Jones", 45),
+      new Employee("Harry Major", 25),
+      new Employee("Ethan Hardy", 65),
+      new Employee("Nancy Smith", 22),
+      new Employee("Deborah Sprightly", 29));
+	  
+	  
+	  
+	   public static void main(String[] args) {
+    boolean allEmpAbove21 = employeeList.stream()
+                           .allMatch(emp -> emp.getAge() > 21);
+    System.out.println("All employees are above 21:" + allEmpAbove21);
+  }
+  
+  
+  ALL SYNTAX : 
+  
+  ============
+  
+  allMatch(), anyMatch() and noneMatch().
+  ======================================
+  
+  1) boolean allEmpAbove21 = employeeList.stream().allMatch(emp -> emp.getAge() > 21);
+  2)  boolean empAbove40 = employeeList.stream() .anyMatch(emp -> emp.getAge() > 40);
+  3) boolean noEmpBelow30 = employeeList.stream().noneMatch(emp -> emp.getAge() < 30);
+  
+  
+  Stream.findAny() and Stream.findFirst() 
+  ======================================
+  
+  
+  
+  Optional<Employee> anyEmpAbove40 = employeeList.stream() .filter(emp -> emp.getAge() > 40).findAny();
+    if(anyEmpAbove40.isPresent()){
+      System.out.println("Any Employee above age 40: " + anyEmpAbove40.get());
+    }
+  
+  Optional<Employee> firstEmpBelow30 = employeeList.stream().filter(emp -> emp.getAge() < 30).findFirst();
+  if (firstEmpBelow30.isPresent()) {
+    System.out.println("First employee below 30: " + firstEmpBelow30.get());
+  
+  
+  Stream.iterate() ,Stream.generate(), 
+  ====================================
+  
+   Stream.iterate(2, (Integer n) -> n*n)
+          .limit(5)
+          .forEach(System.out::println);
+		  
+		  
+	 Stream.generate(Math::random)
+        .limit(5)
+        .forEach(System.out::println);
+  }
+
+Stream.reduce() :
+=================
+
+
+Double totalSalaryExpense = employeeList.stream().map(emp -> emp.getSalary()).reduce(0.00,(a,b) -> a+b);
+    System.out.println("Total salary expense: "+totalSalaryExpense);  
+	
+	
+	Example 2-Stream.reduce()method for finding employee with maximum salary
+	
+	
+	
+	public static void main(String[] args) {
+Optional<Employee> maxSalaryEmp=employeeList.stream().reduce((Employee a, Employee b) -> a.getSalary() < b.getSalary() ? b:a);
+if(maxSalaryEmp.isPresent())
+  System.out.println("Employee with max salary: "+maxSalaryEmp.get());
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+

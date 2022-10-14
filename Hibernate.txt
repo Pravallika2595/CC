@@ -1,0 +1,436 @@
+
+
+
+https://hibernate.org/orm/documentation/getting-started/
+
+<dependency>
+   <groupId>org.hibernate</groupId>
+   <artifactId>hibernate-core</artifactId>
+   <version>6.1.3.Final</version>
+</dependency>
+
+https://wesome.org/spring-data-jpa-findby-equals
+
+
+
+Hibernate is JAVA ORM FRAMEWORK
+RELATIONAL DATA BASE 
+
+MAY BE --- H2 , MYSQl <ORACLE 
+
+
+OBJECT REALTED PROPERTIES INTO REALTION DATA BASE 
+
+
+
+O -- OBJECCT
+R - -REALATIONAL DATABASE
+M --MAPPING 
+
+
+
+JPA ----- DEFINE RULES AND SPECIICATIONS  JAVA PRESISTAANCE API 
+
+
+JAVA APP
+   ||
+hibenate  toplink MyBatis , EclipseLink 
+
+ hib.save()  toplink.save()    MyBatis.save()   Eclipse.save()
+hib.update    toplink.update() MyBatis.Update()
+
+So now once wee need to change orm frame work when we use same methods ..we will get errors ... that hibernate methodds not exists in toplink or any other framework so Now JPA enters the pictur
+
+JPA PROVIDES INTERFACE THAT ORM IMPLEMTNTES THE LOGIC 
+
+
+Now logic changes to 
+
+JPA.save ()
+jPA.update ()
+
+
+SPRING --JDBC TEMPLATE
+SPIRNG BOOT ENITIY MANAGER
+
+Environment interface imlements Avaliable settings 
+
+
+HIBERANTE 
+=========
+
+
+
+Configuartion con = new COnfiguration();
+con.configure("hibernatte.cfg.xml");
+
+SessionFactory sessionfat = con.builSessinonFactiory();
+session ss =sessionfat.opensession();
+
+
+
+
+Description	Resource	Path	Location	Type
+Archive for required library: 'C:/Users/suresh.k/.m2/repository/org/hibernate/hibernate-core/5.6.12.Final/hibernate-core-5.6.12.Final.jar' in project 'movies' cannot be read or is not a valid ZIP file	movies		Build path	Build Path Problem
+
+
+
+
+
+
+
+
+
+
+
+what is hibernate 
+Session Factory and Session 
+
+Sessionfactory provide a session object 
+using session object we can store the CRUD operations
+
+SessionFactory is using single thread
+session is   multithreading
+
+3)SessinFactory -- can we creation multiple session objects
+yes .///when we using multiple Databases ..we can use 
+
+4) Equlivent Object session in JPA 
+
+Entity manger similar class in JAP like Hibernate as session 
+
+persist
+
+
+persistance context 
+
+
+is it cache 
+
+caches  :First level cache
+
+get and Load   -- BOTH ARE FROM HIRBERNATE METHOD
+
+Get and Load method call for same purposes but .get method we have direct hit to database
+but load method we can get hit database only when we use that object ..NO DB CALL up to 
+LOAD IS A PROXY OBJECT CREATIOON 
+
+Song song = session.load(Song.class ,1 )  == NO DB CALL 
+
+System.out.println ("SESSION CASS", song.getSongname());
+
+ HERE DB CALL
+ 
+ Transient State , 
+ 
+ Creating simple Student object that is not mapped with any session then that state is called transiet state 
+ 
+ when we use session  that session maintiai the student object 
+ 
+ Deatached we can ue session.close
+ 
+ session.evict(s) ..this  will we can use the Close the session witou session.close 
+ 
+ which JPA/HBT  METHODS which will help you to move from tansienst state to presistance state  object
+ 
+ save or saveall methods we can use 
+ 
+ contains 
+ 
+ session.contains gives true or false which that object is present or not 
+ it will return true when the object mapped with session otherwise it will return false 
+ 
+ 
+ 
+ Connection Pool : 
+ 
+ 
+ Vendors DBCT == 
+ 
+ DataSource is mainting connection pool 
+ 
+ Driver manger  Datamanager source 
+ 
+ 
+ Fetch types availble in Hibernates
+ 
+ Fetch type Lazy and Fetch Type Eager 
+ 
+ 
+ Lazy Type Explanation : 
+ 
+ 1) University               Student 
+                             
+   Uid                       Stid 
+                             sname
+   Uname                     university un ; 
+   Student<List>
+ 
+ getters and setters           
+ 
+ 
+ IF Lazy type we can fetch only university details not student details 
+ Hibernate people given one to many many to many fetch type is lazy 
+ 
+ by defualut 
+ 
+ Fetch Type Eager means ======= while loading unviesrty 
+ 
+ 
+ 
+ By DEFAULT ONE TO MANY __LAZY 
+ ON DEMAND WE CAN CHANGE TO EAGE 
+ 
+ 
+ @GENERATED Values and it's Strategeis 
+ ID's GENERATED .. 
+ 
+ GENERATED TYPE  : AUTO  , IDENTITY , SEQUNCE  ,TABLE , 
+ 
+ 
+ WHAT IS SPRING BOOT AUTO CONFIGURE 
+ 
+ SPRING BOOT OVER SPRING ADVANTAGES .. 
+ 
+ 
+ HOW YOU ARE MANAGE SECURITY IN SPRING BOOT EXAMPLE
+ WHICH ALOGIRTHM USE ,JWT TOKEN  --- THREE TYPE OF  PARTS IN JWT --- ONE IS HEADER ONE IS PAYLOAD ONE IS SECURITY ALOGIRITHM MD5 OR any other 
+ 
+ LIFE OF TOKEN 
+ 
+HOW TO DO YOU IMPLEMENT 
+
+HAVE YOU USED ANY OTHER TOOLS <DEV TOOLS <ACTUTATOR , SPRING BOOT ADMIN , 
+
+
+
+https://www.youtube.com/watch?v=B-Z-urB01NE
+================
+Hibernate is notthing but a ORM TOOL 
+MAPPING USING JPA AND HIBERNATE XML CONFIGURATION FILES 
+JPA ONLY PROVIDES INTERFACES NOT 
+
+WHY HIBERANATE :
+==============
+
+Hibernate elimanates all boiler code it that comes with JDBC 
+Hibernate provides  Transcation management implicity 
+no nee worry about expections
+hibernate 
+
+IMPORTANT FEATURES OF HIBERANTE 
+
+=============================
+
+SESSION FACTORY 
+SESSION 
+TRANSCATION 
+FROM SESSION FACTORY WE GET SESSION OBJECT FROM SESSION OBJECCT WE GET TRANSCATION 
+
+
+PROGAMATICALAY 
+
+SessionFactory Factory = metaData.getSessionFactoryBuilder().build();
+
+Session session = factory.openSession();
+Trasnsction trans =session.beginTranscation();
+
+session.save(obje);
+t.commit();
+session.close();
+factory.close();
+t.close();
+=================================
+
+Annotations in Hiberante 
+
+Access 
+Enitity 
+Table 
+Colunmn 
+Id -- feild level anooation primary key like that 
+Embeded id --composite primary key 
+Coloumn --field level
+Generted Type .IDENTITY 
+oneto one 
+
+one to many
+cascade 
+primarykeyjoin coloun
+
+
+Mapping in Hirbrante
+one to one  one person one mobile no 
+many to one  
+many to many 
+
+one to one (
+
+@OneToOne(targetEntity=mobile.clss)
+private Mobile mobileclass
+
+many to one 
+ one address many students can live 
+ 
+ class Student{
+ @ManyToOne(cascade=CascadeType.ALL)
+ private Address addresss;
+
+ }
+
+ManytoMany 
+one student can have multiple students degresss
+many to many thrid table will create for joing the tables
+students and degree
+
+@ManyToMany(targetEntity=Degree.class,cascade={CascadeType.ALL})
+@JoinTable(name="DegreeStudentThridTable",
+joinColoumns={@joinColoumns(name="StudentId")},
+inverseJoinCOloumsn={@JoinColumn(name="certified")}
+private List<Degree> degrees;
+
+Wha are hibernate configuration File
+==============================
+
+
+=================
+
+Difference Betweeen OpenSession and GetCurrent Seesion
+
+getCurrentSession()  -- 
+openSession();
+
+we need to open and we need to close 
+get and load 
+
+Hibernate cachee 
+--------------
+
+first level cache and second level cache  and query level cache 
+Cache --- Imporves the performance and our application Faster 
+
+
+2) reduce 
+
+
+
+
+=============== HIBERNATE ANNOTATIONS ====================================
+
+https://www.techferry.com/articles/hibernate-jpa-annotations.html
+
+
+@Entity 
+@Table 
+@Column 
+@Id
+@GeneratedValue
+@Version
+@OrderBy 
+@Transient
+@Lob
+@OneToOne
+@ManyToMany
+@OneToMany
+@PrimayKeyJoinColoumn 
+@JoinColumn
+@JoinTable
+@MapsId 
+@inhertiance
+@discriminatorColumn
+@DiscrimnatorValue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+methods
+
+
+

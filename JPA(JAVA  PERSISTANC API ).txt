@@ -1,0 +1,5 @@
+https://wesome.org/do-we-really-need-create-custom-repository-why-dont-we-autowire-jparepository-directly
+
+https://wesome.org/crudrepository-existsbyid
+
+https://www.youtube.com/watch?v=QgYeSrhaSww
